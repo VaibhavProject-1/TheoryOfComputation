@@ -1,0 +1,94 @@
+Regex package doc
+Example1
+
+[import re
+
+pattern = '^a...s$'
+test_string = 'abyss'
+result = re.match(pattern, test_string)
+
+if result:
+  print("Search successful.")
+else:
+  print("Search unsuccessful.")	
+]
+
+
+Example for start and end
+Search the string to see if it starts with "The" and ends with "Spain":
+
+import re
+
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+
+# Program to extract numbers from a string
+
+import re
+
+string = 'hello 12 hi 89. Howdy 34'
+pattern = '\d+'
+
+result = re.findall(pattern, string) 
+print(result)
+
+# Output: ['12', '89', '34']
+
+Expression meaning
+[]=match anything in the square bracket
+eg:[abc] can match a,ab, or abc
+
+ Caret
+
+The caret symbol ^ is used to check if a string starts with a certain character.
+eg: ^a will match any string starting with a
+
+ Dollar
+
+The dollar symbol $ is used to check if a string ends with a certain character.
+eg: a$ will match all strings ending with a
+
+Star
+
+The star symbol * matches zero or more occurrences of the pattern left to it.
+eg: ma*n will match any number of occurences of a so mn,man,maan,etc; So anything other than a won't be matched
+
+ Plus
+
+The plus symbol + matches one or more occurrences of the pattern left to it.
+eg: like above but mn will not be matched
+
+ Question Mark
+
+The question mark symbol ? matches zero or one occurrence of the pattern left to it.
+eg:like both above but only for mn or man
+
+
+Braces
+
+Consider this code: {n,m}. This means at least n, and at most m repetitions of the pattern left to it.
+eg: a{2,3} will match minimum 2 or maximum 3 occurences
+
+Alternation
+
+Vertical bar | is used for alternation (or operator).
+eg: a|b will match either a or b in the string
+
+Group
+
+Parentheses () is used to group sub-patterns. For example, (a|b|c)xz match any string that matches either a or b or c followed by xz
+eg: (a|b|c)xz will match either axz or bxz or cxz
+
+\ - Backslash
+
+Backlash \ is used to escape various characters including all metacharacters. For example,
+
+\$a match if a string contains $ followed by a. Here, $ is not interpreted by a RegEx engine in a special way.
+
+If you are unsure if a character has special meaning or not, you can put \ in front of it. This makes sure the character is not treated in a special way.
+
+
+\A - Matches if the specified characters are at the start of a string.
+eg: \Athe will match "the sun" but not "In the sun"
+
+\b - Matches if the specified characters are at the beginning or end of a word.
